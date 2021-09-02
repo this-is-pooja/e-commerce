@@ -11,6 +11,8 @@ import Unisex from "./components/UnisexCollection";
 import MenW from "./components/MenWatches";
 import WomenW from "./components/WomenWatches";
 import UnisexW from "./components/UnisexWatches";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 function App(){
   return(
     <>
@@ -26,6 +28,8 @@ function App(){
       <Route path='/MenWatches/:Name?/:img?/:des?/:name?/:price?/:inStock?' component={MenW} />
       <Route path='/WomenWatches/:Name?/:img?/:des?/:name?/:price?/:inStock?' component={WomenW} />
       <Route path='/UnisexWatches/:Name?/:img?/:des?/:name?/:price?/:inStock?' component={UnisexW} />
+      <Route path='/cart/:price?/:img?' component={Cart} exact/>
+      <Route path='/checkout' component={Checkout} exact/>
       <Route component={Error} />
      </Switch>
     </>

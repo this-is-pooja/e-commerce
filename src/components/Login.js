@@ -12,7 +12,7 @@ function Login() {
       <br />
       <Text align="center" color="lblack" fontSize="0.9rem" letterSpacing="0.2rem">BECAUSE TIME MATTERS</Text>
       <br />
-    <Center>
+      <Center>
         <Box h="16rem" w="16rem" p="1rem" bg="white" style={{ borderRadius: "0.2rem", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
           <Input size="md" variant="flushed" placeholder="Email" />
           <Input size="md" variant="flushed" placeholder="Password" />

@@ -17,16 +17,18 @@ import {
 	Image,
 	Spacer,
 } from "@chakra-ui/react";
-
+import Loading from "./Loading";
 function UnisexCollection() {
 	const icon = { color: "#5E5E5E",fontSize:"1.4rem" };
 	const BASE_URL = "https://ritzy-backend.vercel.app";
 	const [Images, setImages] = useState([]);
+	const [loading,setloading]=useState(false);
 	useEffect(() => {
 		axios
 			.get(`${BASE_URL}/products/unisex`)
 			.then((res) => {
 				setImages(res.data.result);
+				setloading(true);
 			})
 			.catch((err) => {
 				console.log("error: ", err);
@@ -75,7 +77,7 @@ function UnisexCollection() {
 				</Center>
 			</Flex>
 			<Box p="1rem">
-				{Images.map((post) => (
+				{loading?Images.map((post) => (
 					<Link
 						to={{
 							pathname: "/UnisexWatches",
@@ -123,7 +125,7 @@ function UnisexCollection() {
 							</Box>
 						</Box>
 					</Link>
-				))}
+				)):<Loading />}
 			</Box>
 		</>
 	);
