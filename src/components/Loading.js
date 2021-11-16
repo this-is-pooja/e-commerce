@@ -4,13 +4,13 @@ import { Center } from "@chakra-ui/react";
 function Loading() {
     return (
         <>
-            <Center mt="15rem">
+            <Center mt="18rem">
                 <Loader
                     type="ThreeDots"
                     color="#E5383B"
-                    height={120}
+                    height={100}
                     width={150}
-                    timeout={3000} //3 secs
+                    timeout={3000}
                 />
             </Center>
         </>

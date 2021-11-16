@@ -1,7 +1,7 @@
-import { Divider, Text, Input, Center, Flex, Box, VStack, HStack } from "@chakra-ui/react";
+import { Divider, Text, Input, Center, Flex, Box, VStack, HStack, Spacer } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-function Checkout() {
+export default function Checkout() {
   return (
     <>
       <Link to="/cart">
@@ -12,21 +12,21 @@ function Checkout() {
       </Link>
       <Text mt="1.2rem" ml="28rem" fontSize="1.2rem"><b>Delivery Details</b></Text>
       <Center>
-        <Divider color="gray" w="40rem" />
-        <br />
+        <Divider color="gray" w="40rem" mt="0.8rem" />
       </Center>
-      <br />
-      <br />
       <Center>
         <VStack>
-          <Input isInvalid errorBorderColor="#5E5E5E"
-            placeholder="Name" w="18rem" h="1.6rem" size="sm" />
+          <Input isInvalid errorBorderColor="lblack"
+            placeholder="Name" w="18rem" h="1.6rem" mt="3rem" size="sm" />
           <Input isInvalid errorBorderColor="lblack"
             placeholder="Address" w="18rem" h="1.6rem" size="sm" />
           <Input isInvalid errorBorderColor="lblack"
             placeholder="Phone Number" w="18rem" h="1.6rem" size="sm" />
-          <br />
+          <Spacer />
+          <Spacer />
+          <Link to="/payment">
           <Box as="button" color="white" bg="red" w="6rem" h="1.5rem" borderRadius="4px">Pay</Box>
+          </Link>
         </VStack>
       </Center>
       <Center>
@@ -38,4 +38,3 @@ function Checkout() {
     </>
   )
 }
-export default Checkout

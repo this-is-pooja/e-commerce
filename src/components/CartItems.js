@@ -1,15 +1,13 @@
-import { Box, HStack, Spacer, Image, Center, VStack, Flex, Text } from "@chakra-ui/react";
+import { Box, HStack, Spacer, Image, Center, VStack, Flex, Divider } from "@chakra-ui/react";
 import { GrFormSubtract } from "react-icons/gr";
 import { GrFormAdd } from "react-icons/gr";
 import { useState, useEffect } from "react";
-function CartItems({ img, price }) {
+
+export default function CartItems({ img, price, key, item, setItems, reload }) {
   const [value, setValue] = useState(1);
   const [total, setTotal] = useState(price);
   const sub = () => {
     setValue(value - 1);
-    if (value === 1) {
-      setValue(value - 1 != 0) & setValue(1)
-    }
   }
   const add = () => {
     setValue(value + 1);
@@ -21,49 +19,68 @@ function CartItems({ img, price }) {
     if (value === 1) {
       setTotal(price)
     }
+    if (value === 0) {
+      const cart_items = JSON.parse(localStorage.getItem("@cart_items"))
+      const updatedCart = cart_items;
+      updatedCart.pop(item);
+      localStorage.setItem("@cart_items", JSON.stringify(updatedCart))
+      // setItems(updatedCart);
+      reload();
+    }
   })
   return (
     <>
-      <Center>
-        <HStack w="44rem">
-          <Box color="lblack" fontSize="0.8rem" style={{ letterSpacing: "0.1rem" }}>PRODUCT DETAILS</Box>
-          <Spacer />
-          <Box color="lblack" fontSize="0.8rem" style={{ letterSpacing: "0.1rem" }}>QUANTITY</Box>
-          <Spacer />
-          <Box color="lblack" fontSize="0.8rem" style={{ letterSpacing: "0.1rem" }}>PRICE</Box>
-          <Spacer />
-          <Box color="lblack" fontSize="0.8rem" style={{ letterSpacing: "0.1rem" }}>TOTAL</Box>
-        </HStack>
-      </Center>
-      <br />
-      <Center>
-        <VStack>
-          <Box
-            w="42.5rem"
-            h="7.8rem"
-            borderRadius="4px"
-          >
-            <HStack>
-              <Image src={img} w="6.6rem" h="7rem" />
-              <Spacer />
-              <Box>
-                <Flex>
-                  <Box bg="gray" w="1rem" h="1rem" mt="0.6rem" onClick={sub}>{<GrFormSubtract />}</Box>
-                  <Box fontSize="1.4rem" border="1px solid #5E5E5E" w="2.2rem" h="2.2rem" borderRadius="4px" ml="0.6rem" mr="0.6rem" align="center">{value}</Box>
-                  <Box bg="gray" w="1rem" h="1rem" mt="0.6rem" onClick={add}>{<GrFormAdd />}</Box>
-                </Flex>
+
+      <Center display={{ sm: "none", md: "block", lg: "block", xl: "block" }}>
+        <Box w="46rem">
+          <Center>
+            <VStack>
+              <Box
+                w="42.5rem"
+              >
+                <HStack key={key}>
+                  <Image src={img} w="6.6rem" h="7rem" />
+                  <Spacer />
+                  <Box>
+                    <Flex>
+                      <Box bg="gray" w="1rem" h="1rem" mt="0.6rem" onClick={sub}>{<GrFormSubtract />}</Box>
+                      <Box fontSize="1.4rem" border="1px solid #5E5E5E" w="2.2rem" h="2.2rem" borderRadius="4px" ml="0.6rem" mr="0.6rem" align="center">{value}</Box>
+                      <Box bg="gray" w="1rem" h="1rem" mt="0.6rem" onClick={add}>{<GrFormAdd />}</Box>
+                    </Flex>
+                  </Box>
+                  <Spacer />
+                  <Box>${price}</Box>
+                  <Spacer />
+                  <Box>${total}</Box>
+                </HStack>
               </Box>
-              <Spacer />
-              <Box>${price}</Box>
-              <Spacer />
-              <Box>${total}</Box>
-            </HStack>
-          </Box>
-          <br />
-        </VStack>
+            </VStack>
+          </Center>
+        </Box>
       </Center>
-      <Box fontSize="1rem" ml="2rem">TOTAL:-${total}</Box>
+
+      <Box display={{ sm: "block", md: "none", lg: "none", xl: "none" }}>
+        <Box justifyContent="center">
+          <VStack key={key} >
+            <Image src={img} w="8.8rem" h="8rem" />
+            <Box>
+              <Flex>
+                <Box bg="gray" w="0.8rem" h="0.8rem" mt="0.6rem" onClick={sub}>{<GrFormSubtract />}</Box>
+                <Box fontSize="1.4rem" border="1px solid #5E5E5E" w="1.8rem" h="2rem" borderRadius="4px" ml="0.6rem" mr="0.6rem" align="center">{value}</Box>
+                <Box bg="gray" w="0.8rem" h="0.8rem" mt="0.6rem" onClick={add}>{<GrFormAdd />}</Box>
+              </Flex>
+            </Box>
+            <Spacer />
+            <Box fontSize="1rem">Price:- ${price}</Box>
+            <Spacer />
+            <Box fontSize="1rem">Total:- ${total}</Box>
+          </VStack>
+        </Box>
+        <Center><Divider w="46rem" color="gray" /></Center>
+      </Box>
     </>
   )
 }
-export default CartItems
+
+
+

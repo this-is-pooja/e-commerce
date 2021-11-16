@@ -1911,6 +1911,13 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
   integrity sha512-82cpyJyKRoQoRi+14ibCeGPu0CwypgtBAdBhq1WfvagpCZNKqwXbKwXllYSMG91DhmG4jt9gN8eP6lGOtozuaw==
 
+"@google-pay/button-react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@google-pay/button-react/-/button-react-3.0.0.tgz#141d89d76a5279ab4a2cc214b1b4f34bae873fc1"
+  integrity sha512-GFRlPrr4rK4iZz1EqsdSDG/gP/UjUAGg+fU3Ar7OacquhCkn2Npr5Bqh7Zyxztx3WzsSYDWA2VPaXIr/JQq0BQ==
+  dependencies:
+    "@types/googlepay" "^0.6.3"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -2501,6 +2508,11 @@
   dependencies:
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/googlepay@^0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@types/googlepay/-/googlepay-0.6.3.tgz#4e716556b904c9af5263255bf872b81ee4073d4d"
+  integrity sha512-mA9d9UoSAKbfcP3xYvTtpyBTxFytu1bwjquy8oZdZPG8z0xnfQwtmTI4F44ptyz8OBWiCmvBj8QR0Rb2D/hQXg==
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
@@ -11477,6 +11489,16 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+sweetalert2-react-content@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2-react-content/-/sweetalert2-react-content-4.2.0.tgz#ab4a6e02e37150dd0ea34d00179ec76952e3f442"
+  integrity sha512-eB324swnq10UJH8nAH2S6GHuAKDgH6GpGU8vI+ulYdmlPzpb0T5QPc7O4RFNRx28GzVZUnfvtpxZbKtZ5/KOnQ==
+
+sweetalert2@^11.1.10:
+  version "11.1.10"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.1.10.tgz#184968f58ffdbe4f09dcd546dde3aef52d2058b6"
+  integrity sha512-Zy/Pdsvf6gJoaqnBaLXYrjElJ85ipe9D5FfcSKxJ0b1PPnTS3B5eC3rFB2pPbo9m1p+LVLBZVvE35JPL2vG6xA==
 
 symbol-tree@^3.2.4:
   version "3.2.4"
